@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="leanix" nsURI="urn:archimate-to-leanix:leanix-target" nsPrefix="leanix">
+  <eClassifiers xsi:type="ecore:EClass" name="LeanIXModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="factSheets" upperBound="-1"
+        eType="#//FactSheet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+        eType="#//FactSheetRelation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FactSheet" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factSheetTypeKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factSheetTypeLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factSheetSubtypeKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factSheetSubtypeLabel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCustomType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingRuleId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessCapability" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessContext" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//FactSheet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataFlowDirection" eType="#//DataFlowDirection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ITComponent" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Organization" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Provider" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TechCategory" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Objective" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Platform" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Initiative" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemFactSheet" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomFactSheet" eSuperTypes="#//FactSheet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FactSheetRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//FactSheet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//FactSheet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationTypeKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationTypeLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reverseRelationTypeLabel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCustomRelation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRelationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingRuleId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataFlowDirection">
+    <eLiterals name="INCOMING"/>
+    <eLiterals name="OUTGOING" value="1"/>
+    <eLiterals name="BI_DIRECTIONAL" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="trace" nsURI="urn:archimate-to-leanix:trace" nsPrefix="trace">
+  <eClassifiers xsi:type="ecore:EClass" name="TraceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
+        eType="#//TraceLink" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceLink">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//TraceKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceArtifacts" lowerBound="1"
+        upperBound="-1" eType="#//SourceArtifactReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetArtifact" lowerBound="1"
+        upperBound="-1" eType="#//TargetArtifactReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceArtifactReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceObject" eType="ecore:EClass archimate.ecore#//ArchimateConcept"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetArtifactReference" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FactSheetTargetReference" eSuperTypes="#//TargetArtifactReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetObject" lowerBound="1"
+        eType="ecore:EClass leanix.ecore#//FactSheet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationTargetReference" eSuperTypes="#//TargetArtifactReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetObject" lowerBound="1"
+        eType="ecore:EClass leanix.ecore#//FactSheetRelation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TraceKind">
+    <eLiterals name="DIRECT" literal="DIRECT"/>
+    <eLiterals name="DERIVED" value="1" literal="DERIVED"/>
+  </eClassifiers>
+</ecore:EPackage>
